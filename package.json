@@ -1,17 +1,29 @@
 {
   "name": "@developer-bug/custom-hooks",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The \"Custom Hooks\" project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "custom-hooks",
+    "react-hooks",
+    "typescript",
+    "javaScript"
+  ],
   "author": "Jessy Avalos Barrales",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.8.6",
+    "@types/react": "^18.3.12",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
