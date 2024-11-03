@@ -20,19 +20,6 @@ El proyecto "Custom Hooks" está diseñado para ser un repositorio centralizado 
 5. Pruebas: Implementación de pruebas unitarias para asegurar la funcionalidad y estabilidad de los hooks.
 6. Actualización Continua: El proyecto se mantiene actualizado con nuevas contribuciones y mejoras.
 
-## Estructura del Proyecto:
-
-- src/hooks/: Carpeta principal que contiene todos los hooks.
-  - useFetch/: Un hook para realizar peticiones HTTP.
-  - useLocalStorage/: Un hook para interactuar con localStorage.
-  - useToggle/: Un hook para manejar estados booleanos.
-  - ...otros hooks.
-
-- docs/: Documentación y ejemplos de uso para cada hook.
-- tests/: Pruebas unitarias para cada hook.
-- README.md: Descripción general del proyecto, guía de contribución y lista de hooks disponibles.
-- package.json: Configuración del proyecto y dependencias necesarias.
-
 ## Beneficios del Proyecto:
 
 - Ahorro de Tiempo: Los desarrolladores pueden enfocarse en la lógica específica de la aplicación en lugar de reinventar la rueda.
@@ -49,8 +36,3 @@ Este proyecto es una herramienta valiosa para cualquier desarrollador que busque
 ## Collaborators
 
 - [Chucky22Mendoza](https://github.com/Chucky22Mendoza)
-
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
