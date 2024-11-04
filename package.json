@@ -1,7 +1,7 @@
 {
   "name": "@developer-bug/custom-hooks",
-  "version": "1.0.0",
-  "description": "The \"Custom Hooks\" project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.",
+  "version": "1.1.0",
+  "description": "This project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
