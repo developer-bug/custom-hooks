@@ -2,7 +2,7 @@
 
 This project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.
 
-## Project Features:
+## **Project Features**
 
 1. **Modular Structure**: Each hook is contained within its own module, with accompanying documentation and usage examples.
 2. **Types of Hooks**: The repository includes hooks for managing state, effects, contexts, events, and other common React patterns.
