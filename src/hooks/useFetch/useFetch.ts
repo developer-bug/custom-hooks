@@ -2,22 +2,37 @@ import { useState, useCallback } from 'react';
 import { HTTPMethod, FetchOptions, FetchResponse } from './useFetch.interface'
 
 /**
- * Custom hook to make HTTP requests using fetch API
- *
- * @template T Type of the response data
- * @template G Type of the request body for POST and PUT methods (optional, defaults to null)
- *
- * @param {string} url - URL endpoint for the request
- * @param {FetchOptions} options - Configuration options for the request
- *
- * @returns {FetchResponse<T, G>} An object containing:
- * - `data` {T | null} - The response data from the API
- * - `error` {string | null} - The error message if an error occurred
- * - `loading` {boolean} - Loading state to indicate if the request is in progress
- * - `get` {() => void} - Function to perform a GET request
- * - `post` {(body: G) => void} - Function to perform a POST request with a request body
- * - `put` {(body: G) => void} - Function to perform a PUT request with a request body
- * - `delete` {() => void} - Function to perform a DELETE request
+ * Custom hook for making HTTP requests using the Fetch API in React.
+ * This hook provides methods for all standard HTTP methods and can handle
+ * GET, POST, PUT, and DELETE requests.
+ * 
+ * @template T - Type of the response data.
+ * @template G - Type of the request body for methods like POST and PUT (optional).
+ * 
+ * @param {string} url - The endpoint URL for the HTTP request.
+ * @param {FetchOptions} options - Additional fetch options such as headers or credentials.
+ * 
+ * @returns {FetchResponse<T, G>} - An object containing:
+ *  - `data`: The response data from the request.
+ *  - `error`: Any error message encountered during the request.
+ *  - `loading`: A boolean indicating if the request is in progress.
+ *  - `get`: A function to initiate a GET request.
+ *  - `post`: A function to initiate a POST request with a request body.
+ *  - `put`: A function to initiate a PUT request with a request body.
+ *  - `delete`: A function to initiate a DELETE request.
+ * 
+ * @example
+ * ```typescript
+ * const { data, error, loading, get, post } = useFetch<DataType>('https://api.example.com/data');
+ * 
+ * useEffect(() => {
+ *   get();
+ * }, []);
+ * 
+ * const handleSubmit = async (newData: RequestBodyType) => {
+ *   await post(newData);
+ * };
+ * ```
  */
 const useFetch = <T, G = null>(url: string, options: FetchOptions = {}): FetchResponse<T, G> => {
     const [data, setData] = useState<T | null>(null);

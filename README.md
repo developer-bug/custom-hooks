@@ -1,38 +1,225 @@
+# Custom Hooks
 
-# Proyecto: Custom Hooks
+This project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.
 
-El proyecto "Custom Hooks" está diseñado para ser un repositorio centralizado y bien organizado de hooks personalizados en React, que pueden ser reutilizados en futuros proyectos. Este almacén no solo facilita la reutilización de código, sino que también promueve la consistencia y la eficiencia en el desarrollo de aplicaciones React.
+## **Project Features**
 
-## Objetivos del Proyecto:
+1. **Modular Structure**: Each hook is contained within its own module, with accompanying documentation and usage examples.
+2. **Types of Hooks**: The repository includes hooks for managing state, effects, contexts, events, and other common React patterns.
+3. **Compatibility**: Hooks are designed to be compatible with the latest versions of React.
+4. **Documentation**: Each hook has internal documentation that explains in detail how it works and provides examples for its use as well.
+5. **Testing**: Implements unit tests to ensure the functionality and stability of the hooks.
+6. **Continuous Updates**: The project is kept up-to-date with new contributions and improvements.
 
-1. Centralización: Reunir todos los hooks personalizados en un solo lugar para facilitar su gestión y acceso.
-2. Reutilización: Permitir la reutilización de lógica común entre diferentes proyectos, reduciendo la duplicación de código y mejorando la mantenibilidad.
-3. Documentación: Proveer una documentación clara y ejemplos de uso para cada hook, facilitando su comprensión e implementación.
-4. Organización: Mantener una estructura organizada que permita la fácil navegación y búsqueda de hooks.
-5. Eficiencia: Mejorar la eficiencia del desarrollo al proporcionar soluciones pre-construidas para problemas comunes en aplicaciones React.
+## **Installation**
 
-## Características del Proyecto:
+```bash
+npm install @developer-bug/custom-hooks
+```
 
-1. Estructura Modular: Cada hook se encuentra en su propio módulo, con su respectiva documentación y ejemplos de uso.
-2. Tipos de Hooks: El almacén incluye hooks para manejar estados, efectos, contextos, eventos, y otros patrones comunes de React.
-3. Compatibilidad: Los hooks están diseñados para ser compatibles con las versiones más recientes de React.
-4. Documentación: Uso de herramientas como Storybook o Docz para documentar y mostrar ejemplos interactivos de los hooks.
-5. Pruebas: Implementación de pruebas unitarias para asegurar la funcionalidad y estabilidad de los hooks.
-6. Actualización Continua: El proyecto se mantiene actualizado con nuevas contribuciones y mejoras.
+## **Hooks**
 
-## Beneficios del Proyecto:
+### **useDebounce**
 
-- Ahorro de Tiempo: Los desarrolladores pueden enfocarse en la lógica específica de la aplicación en lugar de reinventar la rueda.
-- Consistencia: Uso de soluciones probadas y consistentes en todos los proyectos.
-- Colaboración: Facilita la colaboración entre desarrolladores al tener un repositorio centralizado de herramientas comunes.
-- Mantenimiento: Simplifica el mantenimiento y actualización de hooks en un solo lugar.
+Custom hook to debounce a value, delaying updates to the value until after a specified delay has passed since the last change.
 
-Este proyecto es una herramienta valiosa para cualquier desarrollador que busque mejorar la eficiencia y calidad de sus aplicaciones React mediante la reutilización de lógica común y bien documentada.
+**How to use:**
 
-## Creator
+```typescript
+import { useDebounce } = from '@developer-bug/custom-hooks';
 
-[JessyAvalosB](https://github.com/JessyAvalosB)
+const SearchComponent = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-## Collaborators
+    useEffect(() => {
+        if (debouncedSearchTerm) {
+            // Fetch data only when the debounced search term changes
+            fetchData(debouncedSearchTerm);
+        }
+    }, [debouncedSearchTerm]);
 
-- [Chucky22Mendoza](https://github.com/Chucky22Mendoza)
+    return (
+        <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} />
+    );
+};
+```
+
+### **useDocumentTitle**
+
+Custom hook to set the document title in a React component.
+
+**How to use:**
+
+```typescript
+import { useDocumentTitle } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    useDocumentTitle("My Page Title");
+    return <div>Check the document title!</div>;
+};
+```
+
+### **useElementDetector**
+
+Custom hook to detect element visibility within the viewport using `IntersectionObserver`.
+
+**How to use**
+
+```typescript
+import { useRef } from 'react';
+import { useElementDetector } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    const ref = useRef<HTMLDivElement>(null);
+    const isVisible = useElementDetector(
+        ref,
+        {
+            threshold: 0.5, rootMargin: -10
+        },
+        {
+            onTriggerEnter: () => console.log("Entered viewport"),
+            onFirstVisible: () => console.log("Visible for the first time"),
+            onTriggerExit: () => console.log("Exited viewport"),
+            onChangeVisibility: (isVisible) => console.log(`Visibility changed: ${isVisible}`)
+        }
+    );
+    return <div ref={ref}>Check if I am visible</div>;
+};
+```
+
+### **useFetch**
+
+Custom hook for making HTTP requests using the Fetch API in React. This hook provides methods for all standard HTTP methods and can handle GET, POST, PUT, and DELETE requests.
+
+**How to use:**
+
+- **GET Request**
+
+**All Data**
+
+```typescript
+import { useFetch } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    const { data, error, loading, get } = useFetch<ResposeType>('https://api.example.com/data');
+
+    useEffect(() => {
+        get();
+    }, []);
+
+    reutrn(
+        <ul>
+            {data && data.map((item, index) => (
+                <li key="{item.exampleId}">
+                    {item.exampleContent}
+                </li>
+            ))}
+        </ul>
+    );
+}
+```
+
+**One Data**
+
+```typescript
+import { useFetch } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    const { data, error, loading, get } = useFetch<ResposeType>('https://api.example.com/data/1');
+
+    useEffect(() => {
+        get();
+    }, []);
+
+    reutrn(
+        <div>
+            <h1>{data.exampleTitle}</h1>
+            <p>{data.exampleBody}</p>
+        </div>
+    );
+}
+```
+
+- **POST Request**
+
+```typescript
+import { useFetch } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    const { data, error, loading, post } = useFetch<RequestResposeType, RequestBodyType>('https://api.example.com/data');
+
+    const handleSubmit = async (newData: RequestBodyType) => {
+        await post(newData);
+    };
+
+    reutrn(
+        <button onClick={handleSubmit}>
+            New Data
+        </button>
+    );
+}
+```
+
+- **PUT Request**
+
+```typescript
+import { useFetch } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    const { data, error, loading, put } = useFetch<RequestResposeType, RequestBodyType>('https://api.example.com/data/1');
+
+    const handleSubmit = async (updateData: RequestBodyType) => {
+        await put(updateData);
+    };
+
+    reutrn(
+        <button onClick={handleSubmit}>
+            Update Data
+        </button>
+    );
+}
+```
+
+- **DELETE Request**
+
+```typescript
+import { useFetch } = from '@developer-bug/custom-hooks';
+
+const MyComponent = () => {
+    const { data, error, loading, delete: deleteRequest } = useFetch<RequestResposeType, RequestBodyType>('https://api.example.com/data/1');
+
+    reutrn(
+        <button onClick={deleteRequest}>
+            Delete Data
+        </button>
+    );
+}
+```
+
+## **Contributing**
+
+If you'd like to contribute to Custom Hooks, here are some guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Make your changes.
+4. Write tests to cover your changes.
+5. Run the tests to ensure they pass.
+6. Commit your changes.
+7. Push your changes to your forked repository.
+8. Submit a pull request to dev branch.
+
+## **Authors and Acknowledgment**
+
+Custom Hooks was created by **[JessyAvalosB](https://github.com/JessyAvalosB)**
+
+Additional contributors include:
+
+- **[Chucky22Mendoza](https://github.com/Chucky22Mendoza)**
+
+Thank you to all the contributors for their hard work and dedication to the project.
