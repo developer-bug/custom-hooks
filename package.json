@@ -4,9 +4,11 @@
   "description": "This project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [
     "react",
