@@ -226,4 +226,4 @@ Thank you to all the contributors for their hard work and dedication to the proj
 
 ## **Feedback**
 
-[Developer Bug](developer.bug.dev@gmail.com)
+developer.bug.dev@gmail.com
