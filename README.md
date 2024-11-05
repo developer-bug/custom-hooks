@@ -223,3 +223,7 @@ Additional contributors include:
 - **[Chucky22Mendoza](https://github.com/Chucky22Mendoza)**
 
 Thank you to all the contributors for their hard work and dedication to the project.
+
+## **Feedback**
+
+[Developer Bug](developer.bug.dev@gmail.com)
