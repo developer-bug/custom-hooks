@@ -1,6 +1,19 @@
 import { useState, useEffect, RefObject } from 'react';
-import { Callbacks, Options } from './useElementDetector.interface';
 
+export interface Options {
+    threshold?: number;
+    rootMargin?: number;
+}
+
+export interface Callbacks {
+    onChangeVisibility?: (
+        isVisible: boolean,
+        ref: RefObject<HTMLElement>
+    ) => void;
+    onTriggerEnter?: (ref: RefObject<HTMLElement>) => void;
+    onTriggerExit?: (ref: RefObject<HTMLElement>) => void;
+    onFirstVisible?: (ref: RefObject<HTMLElement>) => void;
+}
 
 /**
  * Custom hook to detect element visibility within the viewport using `IntersectionObserver`.
