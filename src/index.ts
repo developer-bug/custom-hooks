@@ -3,3 +3,4 @@ export { default as useDocumentTitle } from './hooks/useDocumentTitle/useDocumen
 export { default as useElementDetector } from './hooks/useElementDetector/useElementDetector';
 export { default as useFetch } from './hooks/useFetch/useFetch';
 export { default as useForm } from './hooks/useForm/useForm';
+export { default as useGetCurrentLocation } from './hooks/useGetCurrentLocation/useGetCurrentLocation';
