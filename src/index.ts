@@ -6,3 +6,4 @@ export { default as useForm } from './hooks/useForm/useForm';
 export { default as useGetCurrentLocation } from './hooks/useGetCurrentLocation/useGetCurrentLocation';
 export { default as useMeasureHeight } from './hooks/useMeasureHeight/useMeasureHeight';
 export { default as useScreenSize } from './hooks/useScreenSize/useScreenSize';
+export { default as useScroll } from './hooks/useScroll/useScroll';
