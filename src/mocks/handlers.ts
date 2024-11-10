@@ -1,6 +1,5 @@
 import { http, HttpResponse } from 'msw';
-
-export const TEST_BASE_URL = 'http://localhost:3003';
+import { TEST_BASE_URL } from '../constants/jest';
 
 export const mockUsers = [
     { id: 1, name: 'John' },

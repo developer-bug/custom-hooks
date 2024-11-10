@@ -1,6 +1,7 @@
 import useFetch from './useFetch';
 import { renderHook, act } from '@testing-library/react-hooks';
-import { mockUser, mockUsers, TEST_BASE_URL } from '../../mocks/handlers';
+import { mockUser, mockUsers } from '../../mocks/handlers';
+import { TEST_BASE_URL } from '../../constants/jest';
 
 interface User {
     id: number;
