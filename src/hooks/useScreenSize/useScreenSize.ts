@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 declare const window: Window;
 
@@ -31,15 +31,25 @@ declare const window: Window;
  * };
  * ```
  */
-const useScreenSize = (query?: string) => {
-    if (typeof window !== 'undefined') {
-        const mediaQuery = window.matchMedia(query ?? '(max-width: 450px)');
-        const [match, setMatch] = useState<boolean>(mediaQuery.matches);
-        mediaQuery.addEventListener('change', (event) => {
-            setMatch(event.matches as boolean)
-        });
-        return match;
-    }
+const useScreenSize = (query: string = '(max-width: 450px)') => {
+    const [match, setMatch] = useState<boolean>(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia(query);
+        setMatch(mediaQuery.matches);
+
+        const handleChange = (event: MediaQueryListEvent) => {
+            setMatch(event.matches);
+        };
+
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => {
+            mediaQuery.removeEventListener('change', handleChange);
+        };
+    }, [query]);
+
+    return match;
 };
 
 export default useScreenSize;

@@ -9,4 +9,5 @@ module.exports = {
     testEnvironmentOptions: {
         customExportConditions: [''],
     },
+    testPathIgnorePatterns: ['<rootDir>/dist/'],
 };
