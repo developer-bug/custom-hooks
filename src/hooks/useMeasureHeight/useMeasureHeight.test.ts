@@ -1,5 +1,5 @@
 import useMeasureHeight from "./useMeasureHeight";
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 
 // Mock the offsetHeight property.
 const setOffsetHeight = (element: HTMLElement, height: number) => {

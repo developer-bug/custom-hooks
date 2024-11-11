@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react'
 import useForm, { FormErrors } from './useForm';
 
 describe('useForm Hook', () => {
@@ -28,7 +28,7 @@ describe('useForm Hook', () => {
     });
 
     it('should update form values on handleChange.', () => {
-        const { result, waitForNextUpdate } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit }));
+        const { result } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit }));
 
         act(() => {
             result.current.handleChange({
@@ -40,7 +40,7 @@ describe('useForm Hook', () => {
     });
 
     it('should validate and set errors on handleBlur', () => {
-        const { result, waitForNextUpdate } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit, validate }));
+        const { result } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit, validate }));
 
         act(() => {
             result.current.handleBlur();
@@ -54,7 +54,7 @@ describe('useForm Hook', () => {
     });
 
     it('should not submit form when errors exist', () => {
-        const { result, waitForNextUpdate } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit, validate }));
+        const { result } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit, validate }));
 
         act(() => {
             result.current.handleSubmit(mockFormSubmitEvent);
@@ -70,7 +70,7 @@ describe('useForm Hook', () => {
     });
 
     it('should submit form when errors are resolved', () => {
-        const { result, waitForNextUpdate } = renderHook(() => useForm({ initialValues: mockFormUser, onSubmit: mockOnSubmit, validate }));
+        const { result } = renderHook(() => useForm({ initialValues: mockFormUser, onSubmit: mockOnSubmit, validate }));
 
         act(() => {
             result.current.handleSubmit(mockFormSubmitEvent);
@@ -82,7 +82,7 @@ describe('useForm Hook', () => {
     });
 
     it('should reset form values and errors', () => {
-        const { result, waitForNextUpdate } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit, validate }));
+        const { result } = renderHook(() => useForm({ initialValues, onSubmit: mockOnSubmit, validate }));
 
         act(() => {
             result.current.handleChange({
