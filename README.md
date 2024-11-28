@@ -2,8 +2,27 @@
 
 This project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [**Project Features**](#project-features)
+- [**Installation**](#installation)
+- [**Hooks**](#hooks)
+  - [**useDebounce**](#usedebounce)
+  - [**useDocumentTitle**](#usedocumenttitle)
+  - [**useElementDetector**](#useelementdetector)
+  - [**useFetch**](#usefetch)
+  - [**useForm**](#useform)
+  - [**useGetCurrentLocation**](#usegetcurrentlocation)
+  - [**useMeasureHeight**](#usemeasureheight)
+  - [**useScreenSize**](#usescreensize)
+  - [**useScroll**](#usescroll)
+- [**Contributing**](#contributing)
+- [**Authors and Acknowledgment**](#authors-and-acknowledgment)
+- [**Feedback**](#feedback)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## **Project Features**
 
