@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 
 /**
- * Custom hook to track the scroll position of an element or the window.
- * 
- * @param {HTMLElement | null} [element=null] Optional element to monitor; if no element is provided, it defaults to tracking the window scroll.
- * 
- * @returns {{
+* Custom hook to track the scroll position of an element or the window.
+*
+* @param {HTMLElement | null} [element=null] Optional element to monitor; if no element is provided, it defaults to tracking the window scroll.
+*
+* @returns {{
 *   scrollX: number;
 *   scrollY: number;
 * }}
@@ -13,6 +13,7 @@ import { useEffect, useState } from "react"
 * - `scrollY` {number} - Current vertical scroll position of the target.
 *
 * @example
+* ```typescript
 * const { scrollX, scrollY } = useScroll();  // Track window scroll
 *
 * // Or, to track scroll on a specific element:
@@ -27,6 +28,7 @@ import { useEffect, useState } from "react"
 *     </div>
 *   );
 * }
+* ```
 */
 const useScroll = (element: HTMLElement | null = null) => {
     const [scrollPosition, setScrollPosition] = useState({
