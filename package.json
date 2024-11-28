@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "This project is designed to be a centralized and well-organized repository of custom React hooks that can be reused in future projects. This repository not only facilitates code reuse but also promotes consistency and efficiency in React application development.",
   "repository": {
-    "url": "https://github.com/developer-bug/custom-hooks.git"
+    "url": "git+https://github.com/developer-bug/custom-hooks.git"
   },
   "homepage": "https://github.com/developer-bug/custom-hooks#readme",
   "main": "./dist/index.js",
